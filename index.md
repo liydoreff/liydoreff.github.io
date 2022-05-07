@@ -1,12 +1,18 @@
 Hello World ...
+
 and Hello Zhao Nan ...
 
 now this is a temporary page with only a few plain words.
+
 and I will update and maintain this site with RUBY.
+
 definately will stuff this site with some of my expierences and opinions and so on.
+
 or may make this site as my blog, sounds interenting.
 
+
 kickoff with a small tech discussion (I'm a nerd... :))
+
 
 * There are total seven USB connectors on MicroServer Gen8 Server; including an internal USB 2.0 connector that is embedded on the system board, four external USB 2.0 connectors on the chassis which two each on the front and rear panels, and two external USB 3.0 connectors on the rear panel.
   + Although these five are all USB 2.0 device connectors but in ESXi's hardware description inventory they are not sharing the same device controller. One of the differences is the numeric code assigned to the USB 2.0 controllers such as Intel Corporation 6 Series/C200 Series Chipset Family USB Enhanced Host Controller #2, or #1. That's because HPE ProLiant MicroServer Gen8 server assigned a dedicated controller to the internal USB connector and MicroSD card slot, and the other controller for the four external USB connectors on chassis.
