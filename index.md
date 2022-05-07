@@ -1,5 +1,5 @@
 hello World ...<br>
-and hello **Zhao Nan** ...<br>
+and hello ***Zhao Nan***{: style="color: blue"} ...<br>
 >now this is a temporary page with only a few plain words and *markdown syntax*.<br>
 
 I will update and maintain this site with RUBY :grinning: later, as so as possible..., or never...<br>
