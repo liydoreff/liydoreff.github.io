@@ -1,9 +1,11 @@
 hello World ...<br>
 and hello **Zhao Nan** ...<br>
-now this is a temporary page with only a few plain words and *markdown syntax*.<br>
-and I will update and maintain this site with RUBY. :grinning:<br>
+>now this is a temporary page with only a few plain words and *markdown syntax*.<br>
+
+I will update and maintain this site with RUBY :grinning: later, as so as possible..., or never...<br>
 > definately will stuff this site with some of my expierences and opinions and so on.<br>
 or may make this site as my blog, sounds interenting.<br>
+
 kickoff with a small tech discussion (I'm a nerd... 😂)<br>
 
 
