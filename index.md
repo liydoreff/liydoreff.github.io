@@ -4,7 +4,7 @@ hello World ...<br>
 ````
 >now this is a temporary page with only a few plain words and simple *html* and *markdown syntax*.<br>
 
-I will update and maintain this site with RUBY :grinning: later, as so as possible..., or never...<br>
+I will update and maintain this site with RUBY 😀 later, as so as possible..., or never...<br>
 > definately will stuff this site with some of my expierences and opinions and so on.<br>
 or may make this site as my blog, sounds interenting.<br>
 
