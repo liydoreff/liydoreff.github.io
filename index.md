@@ -4,15 +4,14 @@ hello *World* ...
 + and hello Chris ..
 + and hello Y .
 ````
->now this is a temporary page with only a few plain words and simple *html* and *markdown syntax*.
+>now, this is just a temporary page with only a few plain words and simply made up of *html* and *markdown* syntax.
 
+I shall update and maintain this tiny site with RUBY 😁 later, as sooooon as possible... or never... who knows ..
 
-I will update and maintain this site with RUBY 😁 later, as so as possible..., or never...
+> shall definitely stuff this site with some of my expierences and opinions and so on.<br>
+or may make this site my blog, ... sounds interenting, at least not boring ..
 
-> definately will stuff this site with some of my expierences and opinions and so on.<br>
-or may make this site as my blog, sounds interenting.
-
-kickoff with a small tech discussion (I'm a nerd... 😂)
+let me kickoff with a small tech discussion (I'm a nerd... 😂)
 
 
 > There are total seven USB connectors on MicroServer Gen8 Server; including an ***internal** USB 2.0 connector* that is embedded on the system board, four ***external*** USB 2.0 connectors on the chassis which two each on the front and rear panels, and two external USB 3.0 connectors on the rear panel.
