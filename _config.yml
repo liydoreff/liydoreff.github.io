@@ -1,3 +1,5 @@
-title: Hui blog
-description: do something never has done before that is truly awesome!
+#Jekyll configuration
+name: Hui's perspective
+description: do something never done before that is truly awesome!
 markdown: GFM
+highlighter: rouge
