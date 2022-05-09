@@ -40,3 +40,29 @@ based on the prior steps, I am able to decide which controller should be dedicat
 
 
 May 8, 2022
+
+### RHEL 7 Server, locale error  
+> 状况：
+> + 登录账号后，系统提示警告⚠️：”-bash: warning: setlocale: LC_CTYPE: cannot change locale (UTF-8): No such file or directory“
+> + 根用户若下载或升级packages，会提示警告⚠️："Failed to set locale, defaulting to C"
+>  
+> RedHat官方给出的解决方案是：
+> + [RHEL 6](https://access.redhat.com/solutions/1267213 "RHEL 6环境")和[RHEL 8](https://access.redhat.com/solutions/4735471 "RHEL 8环境")  
+>
+>  而我在RHEL 7.9系统下按照RedHat提出的RHEL 6的解决方案进行测试，并没有解决实际问题；另外，因为我的系统是RHEL 7.9，所以无法验证RedHat提出的RHEL 8的解决方案是否有效，因为pool不同，我的系统在试图列出"glibc-langpack-en"包时，提示搜索没有结果，可能的原因是在RHEL 7的池子里并没有这个包，而在8的池子里或许有，我不确定。   
+> 总之，这两种解决方案对我来说都没有实际意义。 
+
+
+***在RHEL 7系统下的有效解决方案其实很简单，既然这是因为locale引起的问题，那就加上环境变量就可以了。***
+````diff   
+vi /etc/environment #系统缺省在/etc下没有environment
+````
+***在vi中输入:***
+````diff
+LANG=en_US.utf-8
+LC_ALL=en_US.utf-8
+````
+> 处女座强迫症从此轻松许多 .. 其实这个问题不是很严重，在7上并不影响升级和安装各种包，只是有提示而已 ..  
+
+good night guys
+May 9, 2022 21:57 UTC+8
