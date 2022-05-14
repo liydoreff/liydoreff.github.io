@@ -66,3 +66,15 @@ LC_ALL=en_US.utf-8
 
 good night guys<br>
 May 9, 2022 21:57 UTC+8
+
+### install RVM and set up Passenger for nginx
+> issue
+> + error occured with a hint: failed connect raw_dot_githubxxx_dot_com 443 connection refused. LOL. I am not judging this but what misconduct of behaviours github is to that our authority has to ban this good tech site?
+> solution
+> + anyway, assign an ip address such as **185 199 110 133** to raw_dot_githubxxx_dot_com instead of directly using the url so I am able to cross the damn barrier and fetch the rvm package.
+>
+> configure passenger.conf for nginx
+> + vi edit/create /etc/nginx/conf.d/passenger.cof with:<br>
+>    passenger_root /usr/share/ruby/vendor_ruby/phusion_passenger/locations.ini;<br>
+>    passenger_ruby /home/hli/.rvm/rubies/ruby-2.7.2/bin/ruby;<br>
+>    passenger_instance_registry_dir /var/run/passenger-instreg;
