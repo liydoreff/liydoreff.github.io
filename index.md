@@ -79,3 +79,26 @@ May 9, 2022 21:57 UTC+8
 >    passenger_root /usr/share/ruby/vendor_ruby/phusion_passenger/locations.ini;<br>
 >    passenger_ruby /home/hli/.rvm/rubies/ruby-2.7.2/bin/ruby;<br>
 >    passenger_instance_registry_dir /var/run/passenger-instreg;
+
+### error occured when start nginx
+> issue:<br>
+> + nginx: [emerg] bind() to 0.0.0.0:80 faild (98: Address already in use). obviously that is because that some app occupied 0.0.0.0:80. I should find it and kill it.   
+
+> sudo netstat -ntlp # this command lists all active programs with their pid, protocol, ip address and port  
+> sudo kill xxxx # kill the one occupied 0.0.0.0:80   
+
+> restart nginx service<br>
+> + sudo service nginx restart  
+> 
+> check nginx's status<br>
+> + sudo systemctl status nginx.service  
+
+> check passenger configuration status<br>
+> + sudo passenger-config validate-install  
+
+> check passenger memory usage status<br>
+> + sudo passenger-memory-stats   
+
+
+good noon<br>
+May 15, 2022
