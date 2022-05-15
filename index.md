@@ -78,7 +78,10 @@ May 9, 2022 21:57 UTC+8
 > + vi edit/create /etc/nginx/conf.d/passenger.cof with:<br>
 >    passenger_root /usr/share/ruby/vendor_ruby/phusion_passenger/locations.ini;<br>
 >    passenger_ruby /home/hli/.rvm/rubies/ruby-2.7.2/bin/ruby;<br>
->    passenger_instance_registry_dir /var/run/passenger-instreg;
+>    passenger_instance_registry_dir /var/run/passenger-instreg;  
+
+good morning guys<br>
+May 15, 2022
 
 ### error occured when start nginx
 > issue:<br>
