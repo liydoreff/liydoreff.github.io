@@ -29,12 +29,12 @@ let me kickoff with a small tech discussion (I'm a nerd... 😂)
   as Intel Corporation 6 Series/C200 Series Chipset Family USB<br>
   Enhanced Host Controller #2 and #1. that may be because that<br>
   iLO or ESXi has assigned a *dedicated* controller to the<br>
-  internal USB 2.0 connector and MicroSD card slot, and the<br>
+  internal USB 2.0 connector and MicroSD card slot <sup>1</sup>, and the<br>
   other controller is for the four external USB connectors<br>
   on chassis.<br>
   
 >  + if we already have an plugged storage device on the internal<br>
-  USB connector or MicroSD card slot<sup>1</sup> before, then when<br>
+  USB connector or MicroSD card slot before, then when<br>
   we plug an external USB storage device in to an external USB<br>
   connector, on ESXi web console's Storage entry > Adapters<br>
   tag, two USB Storage Controllers show up, such as vmhba32, vmhba33<br>
@@ -61,7 +61,8 @@ let me kickoff with a small tech discussion (I'm a nerd... 😂)
   based on the prior steps, I am able to decide which controller should<br>
   be dedicated to a VM. (of course the hidden one.)<br>
   <sup>1</sup> in fact, the internal USB connector and MicroSD card slot<br>
-  share the same USB controllor
+  share the same USB controllor<br>
+
 </code></pre>
 </details>
 May 8, 2022
@@ -69,7 +70,7 @@ May 8, 2022
 ### RHEL 7 Server, locale error
 <details>
   <pre><code>
-  状况：
+  状况：<br>
 
 > + 登录账号后，系统提示警告⚠️：”-bash: warning: setlocale: LC_CTYPE: cannot<br>
     change locale (UTF-8): No such file or directory“<br>
@@ -93,7 +94,8 @@ May 8, 2022
   LC_ALL=en_US.utf-8<br>
 
   处女座强迫症从此轻松许多 .. 其实这个问题不是很严重，在7上并不影响升级和安装各种包，只是<br>
-  有提示而已 ..  
+  有提示而已 ..
+  
 </code></pre>
 </details>
 good night guys<br>
@@ -119,10 +121,11 @@ May 9, 2022 21:57 UTC+8
 
   configure passenger.conf for nginx<br>
   
-> + vi edit/create /etc/nginx/conf.d/passenger.cof with:<br>
+> + vi /etc/nginx/conf.d/passenger.conf # edit or create with:<br>
     passenger_root /usr/share/ruby/vendor_ruby/phusion_passenger/locations.ini;<br>
     passenger_ruby /home/hli/.rvm/rubies/ruby-2.7.2/bin/ruby;<br>
     passenger_instance_registry_dir /var/run/passenger-instreg;<br>
+    
 </code></pre>
   </details>
 good morning guys<br>
@@ -151,6 +154,7 @@ issue:<br>
 
   check passenger memory usage status<br>
 > + sudo passenger-memory-stats
+
 </code></pre>
   </details>
 good noon<br>
