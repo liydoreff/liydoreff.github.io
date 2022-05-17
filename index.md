@@ -32,34 +32,38 @@ let me kickoff with a small tech discussion (I'm a nerd... 😂)
   internal USB 2.0 connector and MicroSD card slot <sup>1</sup>, and the<br>
   other controller is for the four external USB connectors<br>
   on chassis.<br>
-  
->  + if we already have an plugged storage device on the internal<br>
+
+>  + if I already have a plugged storage device on the internal<br>
   USB connector or MicroSD card slot before, then when<br>
-  we plug an external USB storage device in to an external USB<br>
+  I plug an external USB storage device in to an external USB<br>
   connector, on ESXi web console's Storage entry > Adapters<br>
   tag, two USB Storage Controllers show up, such as vmhba32, vmhba33<br>
   or 34. and on Devices tag, there are two USB devices listed, such<br>
   as xxx USB xxx, Type:Disk, Capacity:xxGB, and so on.<br>
-  
-  I have to differentiate the external connector from the internal<br>
-  connector for passing directly through the external connector<br>
-  to a VM.<br>
-  a convenient method is SSH connecting to ESXi CLI, like so (on<br>
-  MacOS Terminal):<br>
-> + ~$ ssh username@domain name/IP address<br>
-  
-  enter password, then,<br>
-> + ~$ lspci<br>
-  
+
+  I have to differentiate the *controller* for external connectors
+  from the *controllor* for internal connector so I am able to pass<br>
+  directly through the external connectors' controller to a VM.<br>
+  a convenient method is to establish a SSH connection to ESXi CLI,<br>
+  like so (on MacOS Terminal):  
+````diff
+]$ ssh username@domain name/IP address
+````
+  enter the password, then,
+````diff
+]$ lspci
+````
+
   PCIe devices inventory should be listed, now I can observe<br>
   adapters' code number of Controller #1 and #2.<br>
   
->  + unplug external USB device(s), refresh ESXi web console, and now<br>
+>  + unplug external USB device(s) refresh ESXi web console, and now<br>
   the only remained adapter code number is the internal USB controller<br>
   code number.<br>
   
   based on the prior steps, I am able to decide which controller should<br>
   be dedicated to a VM. (of course the hidden one.)<br>
+  
   <sup>1</sup> in fact, the internal USB connector and MicroSD card slot<br>
   share the same USB controllor<br>
 
@@ -80,20 +84,27 @@ May 8, 2022
   RedHat官方给出的解决方案：<br>
 > + [RHEL 6](https://access.redhat.com/solutions/1267213 "RHEL 6环境")和[RHEL 8](https://access.redhat.com/solutions/4735471 "RHEL 8环境")  
 
-   而我在RHEL 7.9系统下按照RedHat提出的RHEL 6的解决方案进行测试，并没有解决实际问题；<br>
-   另外，因为我的系统是RHEL 7.9，所以无法验证RedHat提出的RHEL 8的解决方案是否有效，因<br>
-   为pool不同，我的系统在试图列出"glibc-langpack-en"包时，提示搜索没有结果，可能的原<br>
-   因是在RHEL 7的池子里并没有这个包，而在8的池子里或许有，我不确定。<br>
-   总之，这两种解决方案对我来说都没有实际意义。<br>
-  在RHEL 7系统下的有效解决方案其实很简单，既然这是因为locale引起的问题，那就加上环境变量<br>
-  就可以了。<br>
-> + vi /etc/environment #系统缺省在/etc下没有environment<br>
+ 而我在RHEL 7.9系统下按照RedHat提出的RHEL 6的解决方案进行测试，并没有解决实际问题；<br>
+ 另外，因为我的系统是RHEL 7.9，所以无法验证RedHat提出的RHEL 8的解决方案是否有效，因<br>
+ 为pool不同，我的系统在试图列出"glibc-langpack-en"包时，提示搜索没有结果，可能的原<br>
+ 因是在RHEL 7的池子里并没有这个包，而在8的池子里或许有；也可能是我没有attach某个repo，<br>
+ 我不确定。<br>
+ 总之，这两种解决方案对我来说都没有实际意义。<br>
+ RHEL 7系统下的有效解决方案其实很简单，既然这是因为locale引起的问题，那就加上环境变量<br>
+ 就可以了。
+ 
+````diff
+]$ sudo vi /etc/environment # 系统缺省的environment文件是空的<br>
+````
 
-  vi中输入:<br>
-> + LANG=en_US.utf-8<br>
-  LC_ALL=en_US.utf-8<br>
+  输入:<br>
+````diff
+# setup globle environment as en_US
+LANG=en_US.utf-8
+LC_ALL=en_US.utf-8
+````
 
-  处女座强迫症从此轻松许多 .. 其实这个问题不是很严重，在7上并不影响升级和安装各种包，只是<br>
+  处女座强迫症从此缓解许多 .. 其实这个问题不是很严重，在7上并不影响升级和安装各种包，只是<br>
   有提示而已 ..
   
 </code></pre>
@@ -120,12 +131,17 @@ May 9, 2022 21:57 UTC+8
   fetch the rvm package.<br>
 
   configure passenger.conf for nginx<br>
-  
-> + vi /etc/nginx/conf.d/passenger.conf # edit or create with:<br>
-    passenger_root /usr/share/ruby/vendor_ruby/phusion_passenger/locations.ini;<br>
-    passenger_ruby /home/hli/.rvm/rubies/ruby-2.7.2/bin/ruby;<br>
-    passenger_instance_registry_dir /var/run/passenger-instreg;<br>
-    
+````diff
+]$ sudo vi /etc/nginx/conf.d/passenger.conf # edit or create with:<br>
+````
+
+  input:
+````diff
+passenger_root /usr/share/ruby/vendor_ruby/phusion_passenger/locations.ini;
+passenger_ruby /home/hli/.rvm/rubies/ruby-2.7.2/bin/ruby;
+passenger_instance_registry_dir /var/run/passenger-instreg;
+````
+
 </code></pre>
   </details>
 good morning guys<br>
@@ -135,25 +151,36 @@ May 15, 2022
 <details>
   <pre><code>
 issue:<br>
-  
   nginx: [emerg] bind() to 0.0.0.0:80 faild (98: Address already in use).<br>
   obviously that is because that some app occupied 0.0.0.0:80. I should<br>
   find it and kill it.<br>
-> + sudo netstat -ntlp # this command lists all active programs with<br>
-    their pid, protocol, ip address and port<br>
-    sudo kill xxxx # kill the one occupied 0.0.0.0:80
+  
+````diff
+# this command lists all active programs with their pid, protocol,
+# ip address and port, and so on
+sudo netstat -ntlp
+sudo kill xxxx # kill the one occupied 0.0.0.0:80
+````
 
-  restart nginx service<br>
-> + sudo service nginx restart
+  restart nginx service:
+````diff
+sudo service nginx restart
+````
 
-  check nginx's status<br>
-> + sudo systemctl status nginx.service
+  check nginx's status:
+````diff
+sudo systemctl status nginx.service
+````
 
-  check passenger configuration status<br>
-> + sudo passenger-config validate-install
+check passenger configuration status:
+````diff
+sudo passenger-config validate-install
+````
 
-  check passenger memory usage status<br>
-> + sudo passenger-memory-stats
+check memory status:
+````diff
+sudo passenger-memory-stats
+````
 
 </code></pre>
   </details>
