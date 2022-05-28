@@ -150,7 +150,9 @@ May 9, 2022 21:57 UTC+8
   solution:
   
 > anyway, assign an ip address such as<br>
-  185 199 110 133 to raw_dot_githubxxx_dot_com<br>
+  [185 199 108(109,110,111) 153]
+  [192 30 252 153(154)]
+  to raw_dot_githubxxx_dot_com<br>
   instead of directly using the url so that I<br>
   am able to cross the damn barrier and<br>
   fetch the rvm package.<br>
