@@ -215,3 +215,17 @@ sudo passenger-memory-stats
   </details>
 good noon<br>
 May 15, 2022
+
+### 雨天为什么会产生心理压抑？
+<details>
+  <code><pre>
+  因为雨天限制了自由，
+  不能随意洗晾衣服，
+  不能随意开窗换气，
+  不能随意外出散步，...，等等
+  如果是思想的自由被阉割了呢？
+
+  </code></pre>
+</details>
+Good nood<br>
+Jun 14, 2022
