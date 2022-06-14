@@ -132,7 +132,7 @@ LC_ALL=en_US.utf-8
   
 </code></pre>
 </details>
-good night guys<br>
+Good Night<br>
 May 9, 2022 21:57 UTC+8
 
 ### install RVM and set up Passenger for nginx
@@ -171,7 +171,7 @@ passenger_instance_registry_dir /var/run/passenger-instreg;
 
 </code></pre>
   </details>
-good morning guys<br>
+Good Morning<br>
 May 15, 2022
 
 ### error occured when start nginx
@@ -213,7 +213,7 @@ sudo passenger-memory-stats
 
 </code></pre>
   </details>
-good noon<br>
+Good Noon<br>
 May 15, 2022
 
 ### 雨天为什么会产生心理压抑？
@@ -229,3 +229,16 @@ May 15, 2022
 </details>
 Good nood<br>
 Jun 14, 2022
+
+### 事实还可以这么表达
+<details>
+  <pre><code>
+  我们经常会陈述一件事实，
+  但是不同的语境，不同的形容词和副词，
+  会给受众截然不同的关于事实的感官认知，
+  会激发不同的情绪，
+  这是发言人的艺术！
+  </code></pre>
+  </details>
+  Good Evening!<br>
+  Jun 14, 2022
